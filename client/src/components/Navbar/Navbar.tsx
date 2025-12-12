@@ -93,9 +93,9 @@ export default function Navbar() {
                       className={({ isActive }) =>
                         `nav-link mx-lg-2 ${isActive ? "active" : ""}`
                       }
-                      to="/dashboard"
+                      to="/quizzes"
                     >
-                      Dashboard
+                      Quizzes
                     </NavLink>
                   </li>
                 )}

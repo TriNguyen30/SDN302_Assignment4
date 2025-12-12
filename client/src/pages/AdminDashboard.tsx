@@ -80,7 +80,7 @@ export default function AdminDashboard() {
   return (
     <div className="container" style={{ marginTop: "120px" }}>
       <div className="d-flex align-items-center justify-content-between mb-3">
-        <h2 className="mb-0">Admin Dashboard</h2>
+        <h2 className="mb-0">Dashboard</h2>
         <div className="d-flex gap-3">
           <NavLink
             className="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"

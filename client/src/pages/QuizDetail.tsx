@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchQuizById, clearCurrent } from "../store/slices/quizSlice";
 
 export default function QuizDetail() {
   const { quizId } = useParams<{ quizId: string }>();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { current: quiz, error, loading } = useAppSelector((state) => state.quizzes);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number>>({});
@@ -96,9 +97,14 @@ export default function QuizDetail() {
             {submitted ? "Submitted" : "Submit Answers"}
           </button>
           {submitted && (
-            <button className="btn btn-outline-secondary mt-3 ms-2" onClick={handleRestart}>
-              Restart Quiz
-            </button>
+            <>
+              <button className="btn btn-outline-secondary mt-3 ms-2" onClick={handleRestart}>
+                Restart Quiz
+              </button>
+              <button className="btn btn-outline-primary mt-3 ms-2" onClick={() => navigate("/")}>
+                Back to Quizzes
+              </button>
+            </>
           )}
         </>
       )}

@@ -12,7 +12,7 @@ export default function UserDashboard() {
 
   return (
     <div className="container" style={{ marginTop: "120px" }}>
-      <h2 className="mb-3">User Dashboard</h2>
+      <h2 className="mb-3">Get Started</h2>
       {loading && <div className="alert alert-info">Loading quizzes...</div>}
       {error && <div className="alert alert-danger">{error}</div>}
       <p className="text-muted">Pick a quiz to start.</p>

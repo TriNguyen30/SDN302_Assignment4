@@ -15,7 +15,7 @@ export default function ProtectedRoute({ children, requireAdmin }: ProtectedRout
   }
 
   if (requireAdmin && !user.admin) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to="/quizzes" replace />;
   }
 
   return children;

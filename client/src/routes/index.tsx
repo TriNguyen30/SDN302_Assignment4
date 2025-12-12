@@ -41,7 +41,7 @@ export default function AppRoutes() {
           }
         />
         <Route
-          path="/dashboard"
+          path="/quizzes"
           element={
             <ProtectedRoute>
               <UserDashboard />

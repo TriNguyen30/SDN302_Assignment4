@@ -44,7 +44,7 @@ export default function Login() {
       dispatch(setUser(data.user));
       setSuccessMessage("Login successful. Redirecting...");
       resetForm();
-      setTimeout(() => navigate(data.user?.admin ? "/admin" : "/dashboard"), 800);
+      setTimeout(() => navigate(data.user?.admin ? "/admin" : "/quizzes"), 800);
     } catch (error) {
       const message =
         axios.isAxiosError(error) && error.response?.data?.message
