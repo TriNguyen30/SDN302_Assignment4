@@ -16,20 +16,10 @@ export default function Navbar() {
   return (
     <div>
       <nav className="navbar bg-white navbar-expand-lg fixed-top">
-        <div className="container-fluid">
+        <div className="container-fluid d-flex align-items-center">
           <NavLink to="/dashboard" className="navbar-brand d-flex align-items-center">
             <img className="navbar-logo" src={logoSrc} alt="Quiz Bank" />
           </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
           <div
             className="offcanvas offcanvas-end"
             tabIndex={-1}
@@ -112,18 +102,35 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
-          {user ? (
-            <div className="d-flex align-items-center gap-3">
-              <span className="text-muted small">Welcome, {user.username}</span>
-              <button onClick={handleLogout} className="login-button btn btn-outline-danger rounded-pill px-4">
-                Logout
-              </button>
-            </div>
-          ) : (
-            <NavLink to="/login" className="login-button btn btn-success rounded-pill px-4">
-              Login
-            </NavLink>
-          )}
+          <div className="d-flex align-items-center ms-auto">
+            {user ? (
+              <>
+                <span className="text-muted small d-none d-lg-inline">
+                  Welcome, {user.username}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="login-button btn btn-outline-danger rounded-pill px-4"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <NavLink to="/login" className="login-button btn btn-success rounded-pill px-4">
+                Login
+              </NavLink>
+            )}
+            <button
+              className="navbar-toggler ms-2"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
         </div>
       </nav>
     </div>
