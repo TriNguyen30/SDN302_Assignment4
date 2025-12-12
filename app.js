@@ -34,8 +34,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(cors({
-  origin: ['https://quizzesv1.vercel.app/'],
-  credentials: false,
+  origin: ['*'],
+  credentials: true,
 }));
 
 app.use('/', indexRouter);
