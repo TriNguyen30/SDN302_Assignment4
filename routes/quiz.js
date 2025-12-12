@@ -1,0 +1,12 @@
+var express = require('express');
+var quizRouter = express.Router();
+var auth = require('../middleware/auth');
+const quizController = require('../controllers/quizController');
+const questionController = require('../controllers/questionController');
+quizRouter.route('/').get(quizController.getAllQuizzes).post(auth.verifyUser, auth.verifyAdmin, quizController.createQuiz);
+quizRouter.route('/:quizId').get(quizController.getQuizByID);
+quizRouter.route('/:quizId/populate').get(quizController.populateQuestionsWithCapital);
+quizRouter.route('/:quizId').put(auth.verifyUser, auth.verifyAdmin, quizController.updateQuiz).delete(auth.verifyUser, auth.verifyAdmin, quizController.deleteQuiz);
+quizRouter.route('/:quizId/question').post(auth.verifyUser, auth.verifyAdmin, questionController.createQuestionForQuiz);
+quizRouter.route('/:quizId/questions').post(auth.verifyUser, auth.verifyAdmin, questionController.createQuestionsForQuizBulk);
+module.exports = quizRouter;
