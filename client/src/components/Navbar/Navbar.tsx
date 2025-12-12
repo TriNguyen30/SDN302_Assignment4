@@ -17,7 +17,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar bg-white navbar-expand-lg fixed-top">
         <div className="container-fluid d-flex align-items-center">
-          <NavLink to="/dashboard" className="navbar-brand d-flex align-items-center">
+          <NavLink to="/" className="navbar-brand d-flex align-items-center">
             <img className="navbar-logo" src={logoSrc} alt="Quiz Bank" />
           </NavLink>
           <div
