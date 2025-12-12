@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import AppLayout from "../layouts/index";
 import Home from "../pages/Home";
-import Questions from "../pages/Questions";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AdminDashboard from "../pages/AdminDashboard";
