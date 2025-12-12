@@ -102,10 +102,10 @@ export default function Navbar() {
               </ul>
             </div>
           </div>
-          <div className="d-flex align-items-center ms-auto">
+          <div className="d-flex align-items-center gap-3 ms-auto">
             {user ? (
               <>
-                <span className="text-muted small d-none d-lg-inline">
+                <span className="text-muted small welcome-text">
                   Welcome, {user.username}
                 </span>
                 <button

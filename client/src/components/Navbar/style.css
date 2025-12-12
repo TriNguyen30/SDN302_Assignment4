@@ -37,6 +37,13 @@
     color: #000000;
 }
 
+.welcome-text {
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media (max-width: 991.98px) {
     /* Make navbar span full width on mobile */
     .navbar {
@@ -50,6 +57,13 @@
     .navbar-logo {
         height: 72px;
     }
+    .welcome-text {
+        max-width: 120px;
+    }
+    .login-button {
+        margin-right: -15px;
+    }
+
 }
 @media (min-width: 992px) {
     .nav-link:before {
