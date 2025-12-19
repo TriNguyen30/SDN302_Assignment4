@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { useAppDispatch } from "../store/hooks";
 import { setToken, setUser } from "../store/slices/authSlice";
 import type { AuthUser } from "../types/api";
+import SnowFall from "react-snowfall";
 
 type LoginFormValues = {
   username: string;
@@ -19,7 +20,10 @@ const loginSchema = Yup.object({
     .min(6, "Password must be at least 6 characters"),
 });
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "");
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "").replace(
+  /\/$/,
+  ""
+);
 const loginUrl = API_BASE_URL ? `${API_BASE_URL}/auth/login` : "/auth/login";
 
 export default function Login() {
@@ -57,7 +61,11 @@ export default function Login() {
   };
 
   return (
-    <div className="container" style={{ marginTop: "120px", maxWidth: "520px" }}>
+    <div
+      className="container"
+      style={{ marginTop: "120px", maxWidth: "520px" }}
+    >
+      <SnowFall color="green" snowflakeCount={200} />
       <h2 className="mb-4 text-center">Login</h2>
       <Formik
         initialValues={{ username: "", password: "" }}
@@ -66,8 +74,12 @@ export default function Login() {
       >
         {({ isSubmitting }) => (
           <Form noValidate>
-            {serverError && <div className="alert alert-danger">{serverError}</div>}
-            {successMessage && <div className="alert alert-success">{successMessage}</div>}
+            {serverError && (
+              <div className="alert alert-danger">{serverError}</div>
+            )}
+            {successMessage && (
+              <div className="alert alert-success">{successMessage}</div>
+            )}
 
             <div className="mb-3">
               <label className="form-label" htmlFor="username">
@@ -80,7 +92,11 @@ export default function Login() {
                 placeholder="Enter your username"
                 autoComplete="username"
               />
-              <ErrorMessage name="username" component="div" className="text-danger small mt-1" />
+              <ErrorMessage
+                name="username"
+                component="div"
+                className="text-danger small mt-1"
+              />
             </div>
 
             <div className="mb-3">
@@ -95,16 +111,24 @@ export default function Login() {
                 placeholder="Enter your password"
                 autoComplete="current-password"
               />
-              <ErrorMessage name="password" component="div" className="text-danger small mt-1" />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="text-danger small mt-1"
+              />
             </div>
 
-            <button className="btn btn-success w-100" type="submit" disabled={isSubmitting}>
+            <button
+              className="btn btn-success w-100"
+              type="submit"
+              disabled={isSubmitting}
+            >
               {isSubmitting ? "Signing in..." : "Login"}
             </button>
             <p className="mt-3 text-center">
               Don&apos;t have an account?{" "}
               <a href="/register" className="text-success fw-semibold">
-                Register here
+                Sign up here
               </a>
             </p>
           </Form>
